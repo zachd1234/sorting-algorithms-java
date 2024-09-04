@@ -15,7 +15,7 @@ public class test
      */
     public test()
     {
-        // initialise instance variables
+        System.out.println("hi");
         x = 0;
     }
 
