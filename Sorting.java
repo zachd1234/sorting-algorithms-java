@@ -60,4 +60,64 @@ public class Sorting
             }
         }  
     }
+    
+    public static void mergeSort(int[] arr)
+    {
+        mergeSort(arr, 0, arr.length);
+    }
+    public static void mergeSort(int[] arr, int beg, int end)
+    {
+        if (beg == end)
+        {
+            return;
+        }
+        else
+        {
+            int mid = (beg + end)/2;
+            mergeSort(arr, beg, mid);
+            mergeSort(arr, mid + 1, end);
+            merge(arr, beg, mid, end);
+        }
+    }
+    public static void merge(int[] arr, int beg, int mid, int end)
+    {
+        int[] temp = new int[end - beg + 1 ]; //arr.length - 1? 
+        int tempCur = 0;
+        int rightCur = mid + 1;
+        int leftCur = beg; 
+        while (leftCur <= mid && rightCur <= end)
+        {
+            if (arr[leftCur] < arr[rightCur])
+            {
+                temp[tempCur] = arr[leftCur];
+                tempCur++;
+                leftCur++;
+            }
+            else
+            {
+                temp[tempCur] = arr[rightCur];
+                tempCur++;
+                rightCur++;
+            }
+        }
+        
+        while (leftCur <= mid)
+        {
+            temp[tempCur] = arr[leftCur];
+            tempCur++;
+            leftCur++;
+        }
+        while (rightCur <= end)
+        {
+            temp[tempCur] = arr[rightCur];
+            tempCur++;
+            rightCur++;
+        }   
+        //copy temp over to array
+        for (int k = 0; k < temp.length; k++)
+        {
+            arr[k+beg] = temp[k];
+        }
+    }
+    
  }      

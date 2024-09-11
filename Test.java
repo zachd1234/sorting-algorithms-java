@@ -1,4 +1,3 @@
-
 public class Test
 {
     public static void testBubble()
@@ -38,6 +37,16 @@ public class Test
             aStr = aStr + arr[i] + " ";
         }
         System.out.println(aStr);
-        
+    }
+    public static void testMerge()
+    {
+        int[] arr = {95, 80, 99, 88, 47, 77, 5, 37,  37};
+        Sorting.mergeSort(arr);
+        String aStr = " ";
+        for (int i = 0; i < arr.length; i++)
+        {
+            aStr = aStr + arr[i] + " ";
+        }
+        System.out.println(aStr);
     }
 }
