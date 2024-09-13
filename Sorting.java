@@ -63,7 +63,7 @@ public class Sorting
     
     public static void mergeSort(int[] arr)
     {
-        mergeSort(arr, 0, arr.length);
+        mergeSort(arr, 0, arr.length-1);
     }
     public static void mergeSort(int[] arr, int beg, int end)
     {
@@ -119,5 +119,33 @@ public class Sorting
             arr[k+beg] = temp[k];
         }
     }
-    
+    public static void quickSort(int[] arr)
+    {
+        quickSort(arr, 0, arr.length-1);
+    }
+    public static void quickSort(int[] arr, int beg, int end)
+    {
+        if (end <= beg)
+        {
+            return;
+        }
+        else
+        {
+            int pivotIndex = partition(arr, beg, end);
+            quickSort(arr, beg, pivotIndex -1);
+            quickSort(arr, pivotIndex+1, end);
+        }
+    }
+    public static int partition(int[] arr, int beg, int end)
+    {
+        int pivotIndex = (int)(Math.random() * (end-beg)) + beg;
+        
+        int swap = arr[end];
+        arr[end] = arr[pivotIndex];
+        arr[pivotIndex] = swap;
+        
+        int pivotVal = arr[end];
+        int leftCur = beg;
+        int rightCUr = end - 1;
+    }
  }      
