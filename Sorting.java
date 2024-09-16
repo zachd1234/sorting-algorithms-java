@@ -131,6 +131,7 @@ public class Sorting
         }
         else
         {
+            //middle value of array
             int pivotIndex = partition(arr, beg, end);
             quickSort(arr, beg, pivotIndex -1);
             quickSort(arr, pivotIndex+1, end);
@@ -146,6 +147,34 @@ public class Sorting
         
         int pivotVal = arr[end];
         int leftCur = beg;
-        int rightCUr = end - 1;
+        int rightCur = end - 1;
+        
+        do
+        {
+            while(arr[leftCur] < pivotVal)
+            {
+                leftCur++;
+            }
+            while (arr[rightCur] > pivotVal && rightCur > beg)
+            {
+                rightCur--;
+            }
+            if (leftCur < rightCur)
+            {
+                int swap3 = arr[leftCur];
+                arr[leftCur] = arr[rightCur];
+                arr[rightCur] = swap3; 
+            }
+        }
+        while(leftCur < rightCur);
+        
+        //pivotIndex is a random number. End is where the pivot Value is Stored. 
+        pivotIndex = leftCur;
+        
+         int swap2 = arr[end];
+         arr[end] = arr[pivotIndex];
+         arr[pivotIndex] = swap2; 
+         
+         return pivotIndex; 
     }
  }      

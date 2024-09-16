@@ -49,4 +49,16 @@ public class Test
         }
         System.out.println(aStr);
     }
+    public static void testQuickSort()
+    {
+        int[] arr = {95, 80, 99, 88, 47, 77, 5, 37,  8245};
+        Sorting.quickSort(arr);
+        String aStr = " ";
+        for (int i = 0; i < arr.length; i++)
+        {
+            aStr = aStr + arr[i] + " ";
+        }
+        System.out.println(aStr);
+    }
+
 }
