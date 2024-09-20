@@ -68,18 +68,20 @@ public class Sorting
         {
             int k = i - 1; 
             int iValue = arr[i];
-            assignment += 2;
             //could do assignment + 1 
             comparison++;
             while (k >= 0 && iValue < arr[k])
             {
-                int swap = arr[k+1];
+                //
+                
                 arr[k+1] = arr[k];
-                arr[k] = swap;
+                
                 k--;
-                assignment += 3;
+                assignment++;
                 comparison++;
             }
+            arr[k+1] = iValue;
+            assignment++;
         }
         System.out.print(", " + comparison + ", " + assignment);
     }
@@ -217,7 +219,6 @@ public class Sorting
                 arr[leftCur] = arr[rightCur];
                 arr[rightCur] = swap3;
                 leftCur++;
-                rightCur--;
                 assignment += 3;
             }
             comparison++;

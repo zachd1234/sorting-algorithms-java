@@ -56,7 +56,12 @@ public class SortingBenchmarkV1
         Sorting.quickSort(testArray);
         System.out.println("\nQuick Sort is accurate: "
                 + Arrays.equals(testArray, sortedTestArray));
-        
+        String aStr = " ";
+        for (int i = 0; i < testArray.length; i++)
+        {
+            aStr = aStr + testArray[i] + " ";
+        }
+        System.out.println(aStr);
         // run benchmarks
         System.out.println("\nSize, Initial, Sort, Compares, Assigns, Time");
         int[] sizes = {25000, 50000, 75000, 100000};
